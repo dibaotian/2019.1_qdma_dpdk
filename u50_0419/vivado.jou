@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Apr 20 14:04:59 2020
+# Process ID: 264494
+# Current directory: /home/min/byte_dance_nic/u50_0419
+# Command line: vivado
+# Log file: /home/min/byte_dance_nic/u50_0419/vivado.log
+# Journal file: /home/min/byte_dance_nic/u50_0419/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xcu50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcu50_0] 0]
+create_hw_cfgmem -hw_device [lindex [get_hw_devices xcu50_0] 0] [lindex [get_cfgmem_parts {mt25qu01g-spi-x1_x2_x4_x8}] 0]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xcu50_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xcu50_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xcu50_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xcu50_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xcu50_0] 0]]
+refresh_hw_device [lindex [get_hw_devices xcu50_0] 0]

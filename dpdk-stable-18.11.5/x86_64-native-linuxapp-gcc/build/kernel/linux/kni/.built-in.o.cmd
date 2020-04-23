@@ -1,0 +1,1 @@
+cmd_/home/min/byte_dance_nic/dpdk-stable-18.11.5/x86_64-native-linuxapp-gcc/build/kernel/linux/kni/built-in.o :=  rm -f /home/min/byte_dance_nic/dpdk-stable-18.11.5/x86_64-native-linuxapp-gcc/build/kernel/linux/kni/built-in.o; ar rcsD /home/min/byte_dance_nic/dpdk-stable-18.11.5/x86_64-native-linuxapp-gcc/build/kernel/linux/kni/built-in.o
