@@ -233,10 +233,10 @@ pkt_burst_transmit(struct fwd_stream *fs)
 		ether_addr_copy(&peer_eth_addrs[fs->peer_addr],&eth_hdr.d_addr);
 
 		//min
-		printf("nb_tx %d \n", nb_tx);
+		//printf("nb_tx %d \n", nb_tx);
 		eth_hdr.d_addr.addr_bytes[0] += counter;
 		counter++;
-                counter =  counter % nb_tx;
+                counter =  counter % 8;
                 //printf ("peer_eth %d \n", eth_hdr.d_addr.addr_bytes[0]);
 		ether_addr_copy(&ports[fs->tx_port].eth_addr, &eth_hdr.s_addr);
 		eth_hdr.ether_type = rte_cpu_to_be_16(ETHER_TYPE_IPv4);
