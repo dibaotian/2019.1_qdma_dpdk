@@ -234,11 +234,19 @@ pkt_burst_transmit(struct fwd_stream *fs)
 
 		//min
 		//printf("nb_tx %d \n", nb_tx);
-		eth_hdr.d_addr.addr_bytes[0] += counter;
+                //printf ("peer_eth %x \n", eth_hdr.d_addr);
+	 	//eth_hdr.d_addr.addr_bytes[0] += counter;
+	 	eth_hdr.d_addr.addr_bytes[0] += fs->tx_queue;
 		counter++;
-                counter =  counter % 8;
-                //printf ("peer_eth %d \n", eth_hdr.d_addr.addr_bytes[0]);
+                counter =  counter % 32;
+                printf ("peer_eth %x \n", eth_hdr.d_addr);
+		printf("tx port = %d rx_port = %d tx queue = %d rx_queue = %d \n",fs->tx_port, fs->rx_port, fs->tx_queue, fs->rx_queue); 
+
 		ether_addr_copy(&ports[fs->tx_port].eth_addr, &eth_hdr.s_addr);
+
+		//min
+		eth_hdr.s_addr.addr_bytes[0] += fs->tx_queue;
+
 		eth_hdr.ether_type = rte_cpu_to_be_16(ETHER_TYPE_IPv4);
 
 		/*
