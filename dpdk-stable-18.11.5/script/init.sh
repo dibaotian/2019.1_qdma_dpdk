@@ -33,7 +33,7 @@ echo " "
 
 echo "3 based on the PF0 create 1 VF"
 echo 0 > $(find /sys/bus/ -name $(echo 0000:$(lspci -d 10ee: | awk 'NR==1 {print $1}')) | awk 'NR==1')/sriov_numvfs
-echo 8 > $(find /sys/bus/ -name $(echo 0000:$(lspci -d 10ee: | awk 'NR==1 {print $1}')) | awk 'NR==1')/sriov_numvfs
+echo 1 > $(find /sys/bus/ -name $(echo 0000:$(lspci -d 10ee: | awk 'NR==1 {print $1}')) | awk 'NR==1')/sriov_numvfs
 echo "create  VF complete"
 echo " "
 
@@ -50,11 +50,11 @@ echo "load VF driver complete"
 echo " "
 
 echo "6 bind the first VF igb_uio driver"
-for number in {0..7}
-do 
+#for number in {0..7}
+#do 
    vf_bdf=$(lspci -d 10ee: | awk 'NR==5 + $number {print $1}')
    echo "bind vf0_bdf"
    usertools/dpdk-devbind.py -b igb_uio $vf_bdf
-done
+#done
 echo "bind VF driver complete"
 echo " "
